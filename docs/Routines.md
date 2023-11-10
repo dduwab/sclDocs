@@ -78,6 +78,64 @@ When the animation starts it proceeds as follow:
 
 Please note the special variable **_sprite**. **_sprite** always refers to the sprite that called current routine.
 
+## Conditional Statements
+
+Routines supports flow control via **if** statements using this syntax:
+```
+if (a==b)
+  ... do something
+elsif (a==c && x==7)
+  ... do something
+elsif (a==d || y!=8)
+  ... do something
+else
+  ... do something
+endif
+```
+- You can next **if** statements up to 5 levels deep.
+- You can have any number of **elsif** conditions
+- No spaces are allowed inside the parenthesis
+- Conditions must include some kind of equality operator
+  - ie: forbidden this is **if (isBig)**, instead say **if (isBig==true)**
+- Take note of the operators, **==, !=, >, <, >=, <=**
+- Multiple conditions are acceptable, **&& ||** for 'and' and 'or'
+
+## Local Variables
+You can specify a named variable to use inside a routine using **var**. Note that this isn't a declaration, it is a command to make an assignment, therefore you use **var** anytime in the routine where you want to change its value.
+
+```
+create routine as Go
+  var xloc=arg.1
+  var yloc=arg.2
+  if (xloc>yloc)
+    var xloc=yloc
+  else
+    var yloc=xloc
+  endif
+  return xloc
+end
+```
+
+## Exiting and Return
+
+You can exit a routine with the **exit** command, and return a value from it using the **return** command.
+
+```
+create routine as Go
+  return arg.1+arg.2
+end
+create routine as GoFaster
+  if (arg.1==arg.2)
+    exit
+  endif
+  log("They are different")
+end
+```
+
+## More
+
+Routines can do much more as they exist to manipulate sprites. For the purpose of clarity, routine commands for other components of the language will be discussed in their specific documents. This includes altering sprite properties, changing global variables, sound, using data sets, and much much more.
+
 ## Extra
 Sneak peek with no explanation yet:
 ```run routine Go where repeat=data.MyList```
