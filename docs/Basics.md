@@ -44,11 +44,6 @@ In the example above, **Start** launches a sprite and that sprite has a rotation
 
 This is the basic process of all SCL animations. Launch sprites, and assign alterations to them.
 
-To remove a sprite from the canvas, call drop inside a routine.
-
-```
-drop MySprite
-```
 
 ## Changing Alterations
 
@@ -105,7 +100,7 @@ end
 
 ## Event Handlers
 
-When an alteration completes, the completion event handler can specify another **alteration** or a **routine** to run. **Routines** run this way are called event handlers. If the value assigned to completion is the name of a **routine**, then that **routine** is run. 
+When an alteration completes, the completion event handler can specify another **alteration** or a **routine** to run. Routines run this way are called **event handlers**. If the value assigned to *completion* is the name of a **routine**, then that **routine** is run. 
 
 ```
 create sprite from fan.png as spinner
@@ -127,5 +122,4 @@ create routine as ThatWay
 end
 ```
 
-## What's Next
 
