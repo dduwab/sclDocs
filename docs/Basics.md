@@ -121,5 +121,10 @@ create routine as ThatWay
       distance=135 completion=ThisWay end)
 end
 ```
+## Syntax
+
+SCL isn't as loose with rules as some other scripting languages. Here are a few extra rules:
+1. No extra whitespace is permitte where it isn't necessary. Therefore, not spaces within an expression like math. For example: 7 + 8 is bad, but 7+8 is good.
+2. No extra whitespace inside parenthesis. For example: ( "bad" ) ("goood")
 
 
