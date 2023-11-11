@@ -22,6 +22,7 @@ end
 - **rotation** is a type of alteration that causes the sprite to rotate around its center point.
 - Both sprites and alterations have a **where** clause. The **where** clause of objects provide property values for those objects.
 - Properties of **where** clauses and values of **having** clauses may or may not be separated with an **and** keyword.
+- Rotations and angles are based on the Unit Circle where 0 degrees is rightward on the horizontal access and 90 is up, therefore a positive rotation is counter-clockwise.
 
 ## Test Prompt
 **ChatGPT 3.5**
@@ -32,6 +33,9 @@ Here is an md file explaining an animation programming language. Please read the
 
 ### Result
 ```
+# Animation Script
+
+```markdown
 create sprite from heart.png as Heart1
   where x=250 y=50 center=auto
   having alt=RotateCounterClockwise
@@ -53,7 +57,7 @@ create sprite from heart.png as Heart4
 end
 
 create rotation as RotateCounterClockwise
-  where speed=-90
+  where speed=90
 end
 
 create routine as Start
