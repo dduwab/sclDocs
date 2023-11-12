@@ -13,5 +13,9 @@ here 2: https://editablegifs.com/
 
 here 3: https://structuredcanvaslanguage.com/makegames/?playaround
 
+> [!NOTE]
+> When provided, most code samples can be run at https://canvaslanguage.com/studio/github-examples.
+> Paste the code samples into the box under that "Advanced" tab,
+> then push the "Rec" button to view the animation.
 
 
