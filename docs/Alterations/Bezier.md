@@ -23,7 +23,7 @@ create bezier as MyBezierTraversal
 end
 
 create routine as Start
-  launch Heart
+  launch Arrow
 end
 ```
 The Bezier alteration will move your sprite along a curve you specify with a path.
