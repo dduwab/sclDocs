@@ -41,7 +41,7 @@ A simple way to design your curves is in GIMP (gimp.org). Use the curve drawing 
 ## Properties
 
 - **where** clause lists properties of the Bezier alteration. Here they are:
-  - completion={routine} the name of a routine to run with the sprite is finished following all the laps of the curve.
+  - completion={routine|alteration} the name of a routine or alteration to run with the sprite is finished following all the laps of the curve.
   - laps={number} how many times sprite should follow the path. For unlimited, use a high number like 99999999
   - orientation={none|normal|tangent} indicates how to angle the sprite on the path
   - path={"x,y "...} a series of points separated by spaces. The first two points are guides leading from start. Do not put a linefeed inside the path value.
