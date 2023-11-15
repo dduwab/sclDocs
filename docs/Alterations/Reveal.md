@@ -29,9 +29,9 @@ end
 
 ## Properties
 - **where**
+  - **completion**={routine|alteration} the name of a routine or alteration to run with the operation is complete.
+  - **direction**="{top|bottom|right|left}" from which direction to enter or leave.
+  - **speed**={number} the speed with which to move the sprite
   - **type**="{show|hide}" should the sprite enter or leave the view with this alteration.
-   - **direction**="{top|bottom|right|left}" from which direction to enter or leave.
-   - **speed**={number} the speed with which to move the sprite
-   - **completion**={routine name} the name of a routine to run with the operation is complete.
 
 
