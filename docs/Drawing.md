@@ -16,6 +16,9 @@ create routine as Start
     font "italic bold 48px sans-serif"
     fillstyle "green"
     filltext "Hello",10,10,100
+    strokestyle black
+    circle 250,160,20
+    stroke
   enddraw
   launch Triangle
   draw onto Triangle
@@ -47,16 +50,26 @@ Drawing is sticky. Once you draw on a sprite or onto _bottom or _top, that drawi
 **You are strongly advised to read the W3 2D Context drawing specification for how some of these command work.**
 
 ## Supported calls are: 
-- **arc** 
+- **arc** draws an arc using current line settings
+  - ```arc x,y,radius,startAngle,endAngle,counterClockwise{false|true}```
 - **arcto** extends the current path as an arc
-- **beziercurveto** draws a curve using the bezier method
-- **beginpath**
+  - ```arcto x1,y1,x2,y2,radius```
+- **beziercurveto** extends the current path following this bezier curve
+  - ```beziercurveto controlPt1X,controlPt1Y,controlPt2X,controlPt2Y,endPointX,endPointY```
+- **beginpath** lifts the pen, and restarts the drawing path
+   - ```beingpath```
 - **circle** creates a circle at x,y with radius: circle 100,230,50
-- **clear** clears the instruction list (see below)
+   - ```circle x,y,radius```
+- **clear** clear all the drawing from the surface but only for _top and _bottom. If drawing onto a sprite then you must use **clearrect** instead
+   - ```clear```
 - **clearrect** clears a rectangle of the given size
-- **clip** creates a clipping region based on current path
-- **closepath**
-- **composition**
+   - ```clearrect x,y,w,h```
+- **clip** creates a clipping region based on current path. Any drawing that occurs outside the clipped region will not be visible
+   - ```clip```
+- **closepath** closes the current drawing path. ie: it ends now so you can start a new path with beginpath
+   - ```closepath```
+- **composition** sets a layer composition on the subsequent draws. Valid values are here https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation
+   - ```composition xor```
 - **fill** fills the current path with the current fillstyle
 - **fillrect** fills a rectangle with the current fillstyle
 - **fillstyle** sets a fill color which is used to fill an area created by paths
