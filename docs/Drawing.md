@@ -71,33 +71,58 @@ Drawing is sticky. Once you draw on a sprite or onto _bottom or _top, that drawi
 - **composition** sets a layer composition on the subsequent draws. Valid values are here https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation
    - ```composition xor```
 - **fill** fills the current path with the current fillstyle
+   - ```fill```
 - **fillrect** fills a rectangle with the current fillstyle
+   - ```fill x,y,w,h```
 - **fillstyle** sets a fill color which is used to fill an area created by paths
+   - ```fillstyle {string}```
+   - ```fillstyle red```
+   - ```fillstyle "rgba(124,255,17,0.5")```
 - **filltext** draws given text using the current fillstyle
-- **floodfill**
-- **font** defines font to use. See docs reference below for settings. ex ("italic 400 12px/2 Unknown Font, sans-serif"). That format is "[style] [variant] [weight] [size/line height] [font]"
+   - ```filltext "my text",x,y,maxWidth```
+- **floodfill** fills an enclosed space with the given rgba color
+   - ```floodfill x,y,r,g,b,a```
+- **font** specifies font properties to use when drawing text. See docs reference below for settings. ex ("italic 400 12px/2 Unknown Font, sans-serif"). That format is "[style] [weight] [size/line height] [font]"
+   - ```font "italic 500 24px sans-serif"```
 - **image** draws an image at the specified x/y: image dog.png,0,0
-- **lineto** draws a line from the current position to the given coordinate
-- **linewidth** set the line width for strokes made after
+   - ```image {file name},x,y```
+- **lineto** draws a line from the current path position to the given coordinate
+   - ```lineto x,y```
+- **linewidth** set the line width for new strokes
+   - ```linewidth {number}```
 - **moveto** moves your current drawing tip to the given coordinate
-- **quadraticcurveto** draws a curve using the quadratic method
-- **rect** creates a rectangular subpath
-- **shadowblur** set shadow under text blur value (1 is slight blur, 20 is very blurry, 20+ is possible
-- **shadowcolor** set shadow color 
-- **shadowoffsetx** set shadow under text x-offset
-- **shadowoffsety** set shadow under text y-offset
+   - ```moveto x,y```
+- **quadraticcurveto** extends the current path using the quadratic curve method
+   - ```quadraticcurveto controlPointX,controlPointY,endPointX,endPointY```
+- **rect** creates a rectangular subpath to the current path
+   - ```rect x,y,w,h```
+- **shadowblur** sets the amount of blur to shadows drawn under text (1 is slight blur, 20 is very blurry, 20+ is possible
+   - ```shadowblur {number}```
+- **shadowcolor** set text shadow color
+   - ```shadowcolor "{css color value}"```
+   - ```shadowcolor "green"```
+- **shadowoffsetx** set text shadow x-offset
+   - ```shadowoffsetx {number}```
+- **shadowoffsety** set text shadow y-offset
+   - ```shadowoffsety {number}```
 - **stroke** outlines the current path with the current strokestyle
-- **strokerect** draws a rectangle outline with the current stroke style
+   - ```stroke```
+- **strokerect** draws a rectangle outline with the current stroke style. This does not effect the current path.
+   - ```strokerect x,y,w,h```
 - **strokestyle** sets a stroke color which is applied to lines draw with paths or text
+   - ```strokestyle "{css color value}"```
+   - ```strokestyle "#ffff00"```
 - **stroketext** draws the given text using the current strokestyle
-- **textalign** set to "center", "left", or "right"
-- **textbaseline** set to "top","middle","hanging","alphabetic","ideographic","bottom"
+   - ```stroketext "my text",x,y,maxWidth```
+- **textalign** set to a value of "center", "left", or "right"
+   - ```textalign {value}```
+- **textbaseline** set to a value of "top","middle","hanging","alphabetic","ideographic","bottom"
+   - ```textbaseline {value}```
 
-
-Read the W3 drawing specification for details but be aware of some basics with SCL: 
+## Read the W3 drawing specification for details but be aware of some basics with SCL: 
 - All the names of draw commands are completely small case
 - After the command name, leave a space, then a list of parameters separated by commas. Do not use an equal sign or paranthesis.
 - Using moveto and lineto doesn't draw anything unless you follow the list of commands with "stroke" or "fill".
-- Once you draw something, it stays until you call "clear". That clears all the drawn items from the target (the target being “_top”, “_bottom” or a sprite name)
+- Once you draw something, it stays until you call "clear". That clears all the drawn items from the target (the target being “_top”, “_bottom”). For drawing on sprites, you must use **clearrect** instead.
 - Multiple lines can be separated with \n In this case, vertical spacing of lines will be based on the most recent call to 'font' where a px value was specified.
 
