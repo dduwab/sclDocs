@@ -10,7 +10,9 @@ Events are signals that occur when something happens in the animation or the to 
 
 **Animation Events** are events triggered by the animation process, for example upon entering the animation frame or exiting the frame.
 
-Many events can be set on individual sprites or on the canvas as a whole. **Canvas events** are set in routines using a **set** command. In sprites, events are set in the **where** clause.
+Many events can be set on individual sprites or on the canvas as a whole:
+ - **Canvas events** are set in routines using a **set** command.
+ - **Sprite events** are set in the **where** clause. For details about **sprite events**, see the **sprite** documentation.
 
 > [!NOTE]
 > Try out code samples at https://canvaslanguage.com/studio/github-examples.
