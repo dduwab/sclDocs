@@ -53,13 +53,17 @@ create routine as Start
   set mousemove=OnMMove
 end
 create routine as OnMMove
-  log(mouse.x+","+mouse.y)
-  log(mouse.x1+","+mouse.y1)
-  log(mouse.x2+","+mouse.y2)
-  log(mouse.angle)
-  log(mouse.distance)
-  log(mouse.distancex)
-  log(mouse.distancey)
+  draw onto _top
+    clear
+    font "normal 100 16px monospace"
+    filltext "x,y="+mouse.x+","+mouse.y,10,10,500
+    filltext "x2,y2="+mouse.x2+","+mouse.y2,10,30,500
+    filltext "x1,y1="+mouse.x1+","+mouse.y1,10,50,500
+    filltext "angle="+mouse.angle,10,70,500
+    filltext "distance="+mouse.distance,10,90,500
+    filltext "distancex="+mouse.distancex,10,110,500
+    filltext "distancey="+mouse.distancey,10,130,500
+  enddraw
 end
 ```
 > [!NOTE]
