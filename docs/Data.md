@@ -31,6 +31,9 @@ When processing letters, no distinction is made between words. Every value in th
 Key/value pairs let you access values using a 'key' name that you give the value. This is a convenient way to store and retrieve data that is used through-out your program. 
 
 ```
+/*
+If testing this in the studio, you won't see anything on the canvas. Instead scroll down to see log messages on the bottom left side of the page.
+*/
 create data from pairs as MyPairs
   set
     x=100 y=222 z="hi there"
@@ -42,6 +45,8 @@ create routine as Start
 
   log(data.MyPairs.z)
   var data.MyPairs.y=333
+  log(data.MyPairs.y)
+  update data MyPairs set y=444
   log(data.MyPairs.y)
 end
 ```
@@ -112,6 +117,9 @@ endif
 ## Calling Routines with Data
 You can pass data to routines in two ways: using repeat or by passing the data object as a parameter.
 ```
+/*
+If testing this in the studio, you won't see anything on the canvas. Instead scroll down to see log messages on the bottom left side of the page.
+*/
 create data from list as MyList
 set
   "one" "two" "three"
@@ -124,14 +132,17 @@ create routine as Go
 end
 ```
 
-**repeat** will cause FinalizeMonkeys to be run repeatedly until the end of the data list is reached. Inside the routine, we assign the next value in the list to a local var, in this case nextMonkey.
+**repeat** will cause Go to be run repeatedly until the end of the data list is reached. Inside the routine, we log the next value to the screen.
 
-**IMPORTANT**: It is vital that you call data.MonkeyList.next inside the routine else your animation will call the same routine forever using the same value from the data object.
+**IMPORTANT**: It is vital that you call data.MyList.next inside the routine else your animation will call the same routine forever using the same value from the data object.
 
 ### Data as Parameter
 The second method to pass data to routines is to pass the data object as a parameter. For example:
 
 ```
+/*
+If testing this in the studio, you won't see anything on the canvas. Instead scroll down to see log messages on the bottom left side of the page.
+*/
 create data from list as MyData set 1 2 3 end
 create routine as Start
   MyR(data.MyData)
@@ -149,6 +160,9 @@ In the above example, the data is passed as a parameter and the parameter is ass
 Levels are supported in SCL by assigning data or variables into levels. You then select a level by setting the global level variable. Names for data and variables assigned to different levels have the same name, but different level names. Then when a value is requested by a given name, the value for that level is used. Levels can be names or numbers.
 
 ```
+/*
+If testing this in the studio, you won't see anything on the canvas. Instead scroll down to see log messages on the bottom left side of the page.
+*/
 create data from list as charNames into Level1
 set
   "Sue" "Mary" "Johnny" "Casper"
